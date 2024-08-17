@@ -1,0 +1,184 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+  max-height: 100vh;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* todo: -------------------- Container -------------------- */
+.main-container {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('./assets/fondo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
+
+/* todo: -------------------- Container title -------------------- */
+.main-container .text-title {
+  width: 100%;
+  font-size: 1.25rem;
+  color: #5b627d;
+  margin-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.main-container .text-title h2 {
+  font-size: 4rem;
+  color: white;
+  font-family: var(--font-title-bold);
+  text-shadow: 4px 3px 3px black;
+  line-height: 2rem;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* todo: -------------------- Roulete -------------------- */
+.main-container .content {
+  max-width: 1100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.main-container .content .formContainer {
+  border-radius: 10px;
+  padding: 1rem 2rem 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-container .content .formContainer .buttonAdd,
+.main-container .content .formContainer .btnDelete {
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.main-container .content .formContainer .input {
+  border: 1px solid #dcdcdc;
+  margin-right: 10px;
+  height: 2rem;
+  border-radius: 5px;
+  min-width: 200px;
+  padding-left: 15px;
+  flex: 1;
+}
+
+.main-container .content .formContainer .items {
+  text-align: center;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container .content .formContainer .items .cantidad {
+  color: white;
+  font-size: 2.25rem;
+  margin: 0;
+  text-align: center;
+}
+
+.main-container .content .formContainer .img-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.main-container .content .formContainer .img-content {
+  position: relative;
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+  margin-right: 15px;
+  position: relative;
+}
+
+.main-container .content .formContainer .item {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.main-container .content .formContainer .result-item {
+  display: flex;
+  align-items: center;
+}
+
+.main-container .content .formContainer .result-text {
+  color: #5b627d;
+  font-size: 1.25rem;
+}
+
+.main-container .content .formContainer .result-image {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+  margin-right: 25px;
+  border-radius: 8px;
+  display: block;
+}
+
+.main-container .content .formContainer .hidden {
+  display: none;
+}
+
+.main-container .content .formContainer i,
+svg {
+  margin-right: 1rem;
+}
+
+@media(max-width: 900px) {
+
+  .main-container .text-title h2 {
+    font-size: 2.6rem;
+  }
+
+  .main-container .content {
+    flex-direction: column;
+  }
+
+  .main-container .content .formContainer {
+    padding-top: 1rem;
+    margin-top: 3rem;
+  }
+
+}
