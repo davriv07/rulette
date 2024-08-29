@@ -23,9 +23,12 @@
   src: url('./assets/font/Poppins.ttf');
 }
 
-*, #root {
+*,
+#root {
   position: relative;
 }
+
+body::-webkit-scrollbar { width: 0 !important; }
 
 #confetti {
   z-index: 110;
@@ -39,28 +42,58 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100%;
+  height: auto;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #alert .alert {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  min-width: 300px;
+  min-width: 40vw;
+  max-width: 80%;
   width: max-content;
+}
+
+#alert .alert .alertTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+#alert .alert .alertTitle .btnClose {
+  padding: 0.5rem;
+  height: auto;
+  font-size: 3vw;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: bolder;
+}
+
+#alert .css-svzhua-MuiPaper-root-MuiAlert-root .MuiAlert-icon {
+  font-size: 4vw;
 }
 
 #alert .alert h2 {
   padding: 0;
   margin: 0;
-  font-size: 2rem;
+  font-size: 5vw;
+  line-height: 5vw;
 }
 
+#alert .alert .winner {
+  width: 100%;
+  overflow-wrap: break-word
+}
 #alert h3 {
   text-align: center;
   margin: 0;
-  font-size: 5rem;
+  font-size: 5vw;
   color: #000;
+  line-height: 4.5vw;
 }

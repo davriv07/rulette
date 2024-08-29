@@ -14,14 +14,14 @@ const colors = [
     "#169ed8",
     "#175fa9",
     "#239b63",
-    "#64b031",
     "#f7a416",
     "#e6471d",
-    "#dc0936",
     "#e5177b",
-    "#be1180",
-    "#871f7f",
+    "#64b031",
     "#3f297e",
+    "#be1180",
+    "#dc0936",
+    "#871f7f",
 ];
 
 const Rulette = ({ data }) => {
@@ -42,7 +42,7 @@ const Rulette = ({ data }) => {
         setMustSpin(true);
     }
 
-    const portalRoot = document.getElementById('portal-root');
+    const portalRoot = document.getElementById('portal-root') ?? null;
 
     React.useEffect(() => {
         const addShortString = data.map((item) => {
@@ -57,27 +57,24 @@ const Rulette = ({ data }) => {
         setRouletteData(addShortString);
     }, [data]);
 
-
-
     return (
         <>
             <div id="roulette-container">
                 <Wheel
                     mustStartSpinning={mustSpin}
-                    spinDuration={[0.5]}
+                    spinDuration={0.30}
                     prizeNumber={prizeNumber} // Generar un numero aleatrio dentro de la lista dada
                     data={rouletteData}
+                    textDistance={50}
+                    fontSize={20}
                     radiusLineColor={["tranparent"]}
                     backgroundColors={colors}
                     textColors={['#ffffff']}
                     onStopSpinning={() => {
                         setMustSpin(false);
                         setShowAlert(true);
-                        setTimeout(() => {
-                            setShowAlert(false)
-                        }, 5000);
+                        // setTimeout(() => { setShowAlert(false) }, 5000);
                     }}
-                    disableInitialAnimation
                 />
                 <Button variant='contained' onClick={handleClickSpin} className="btnSpin" disabled={mustSpin}>
                     Girar
@@ -90,14 +87,19 @@ const Rulette = ({ data }) => {
                             <div id="alert">
                                 <ConfettiExplosion id="confetti" />
                                 <Alert className="alert" severity="success">
-                                    <AlertTitle>
+                                    <AlertTitle className='alertTitle'>
                                         <h2>Ganador!</h2>
+                                        <button className='btnClose' onClick={() => {
+                                            setShowAlert(false)
+                                        }}>X</button>
                                     </AlertTitle>
-                                    <h3>{rouletteData[prizeNumber].completeOption ?? ''}</h3>
+                                    <div className="winner">
+                                        <h3>{rouletteData[prizeNumber].completeOption ?? ''}</h3>
+                                    </div>
                                 </Alert>
                                 <ConfettiExplosion id="confetti" duration={4000} />
                             </div>
-                            </>,
+                        </>,
                             portalRoot)
                         : ''
                 }
